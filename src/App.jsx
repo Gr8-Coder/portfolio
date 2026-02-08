@@ -12,7 +12,7 @@ import { ThemeProvider } from './context/ThemeContext';
 function App() {
   return (
     <ThemeProvider>
-      <Router>
+      <Router basename="/portfolio">
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />

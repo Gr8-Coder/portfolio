@@ -22,7 +22,7 @@ const About = () => {
                 >
                     <div style={styles.imageFrame}>
                         <img
-                            src="/profile.png"
+                            src={`${import.meta.env.BASE_URL}profile.png`}
                             alt="Sajal Tyagi"
                             style={styles.profileImage}
                         />

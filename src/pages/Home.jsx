@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Download } from 'lucide-react';
 
@@ -38,10 +39,10 @@ const Home = () => {
                 </div>
 
                 <div style={styles.actions}>
-                    <a href="/projects" style={styles.primaryBtn}>
+                    <Link to="/projects" style={styles.primaryBtn}>
                         View Work <ArrowRight size={18} />
-                    </a>
-                    <a href="/resume.pdf" target="_blank" style={styles.secondaryBtn}>
+                    </Link>
+                    <a href={`${import.meta.env.BASE_URL}resume.pdf`} target="_blank" rel="noopener noreferrer" style={styles.secondaryBtn}>
                         Download CV <Download size={18} />
                     </a>
                 </div>

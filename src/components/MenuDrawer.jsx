@@ -9,7 +9,7 @@ const MenuDrawer = ({ isOpen, onClose }) => {
         { name: 'Work', path: '/projects' },
         { name: 'Experience', path: '/experience' },
         { name: 'About', path: '/about' },
-        { name: 'Resume', path: '/resume.pdf', isExternal: true },
+        { name: 'Resume', path: `${import.meta.env.BASE_URL}resume.pdf`, isExternal: true },
     ];
 
     const categories = ['All', 'TLDR', 'Recognition', 'Contribution'];

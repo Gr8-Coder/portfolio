@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* IDE Theme Colors (Dark Modern) */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #161616;
+  --bg-tertiary: #1f1f1f;
+
+  --text-primary: #ededed;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #52525b;
+
+  /* Syntax Highlighting Accents */
+  --accent-blue: #3b82f6;
+  --accent-green: #22c55e;
+  --accent-purple: #a855f7;
+  --accent-yellow: #eab308;
+  --accent-red: #ef4444;
+  --accent-cyan: #06b6d4;
+
+  --border-color: #27272a;
+  --border-hover: #3f3f46;
+
+  /* IDE Component Variables - Dark Mode Defaults */
+  --code-bg: #1E1E1E;
+  --code-header: var(--bg-secondary);
+  /* Stronger whitespace shadow for "floating" effect in dark mode */
+  --card-shadow: 0 15px 40px -10px rgba(255, 255, 255, 0.1);
+
+  /* Typography Defaults */
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-jetbrains: 'JetBrains Mono', monospace;
+  --font-playfair: 'Playfair Display', serif;
+  --font-nunito: 'Nunito', sans-serif;
+
+  /* Default Interface Font (Sans) */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+}
+
+/* Font Overrides based on data-font attribute */
+[data-font='serif'] {
+  --font-sans: var(--font-playfair);
+}
+
+[data-font='mono'] {
+  /* When Mono is selected as the main theme, everything gets the coding font vibe */
+  --font-sans: var(--font-jetbrains);
+}
+
+[data-font='round'] {
+  --font-sans: var(--font-nunito);
+}
+
+/* Palette Overrides (Dark Mode Tints) */
+[data-palette='blue'][data-theme='dark'],
+[data-palette='blue']:not([data-theme='light']) {
+  /* Default to dark if no theme attr */
+  --bg-primary: #0f172a;
+  /* Slate 900 */
+  --bg-secondary: #1e293b;
+  /* Slate 800 */
+  --bg-tertiary: #334155;
+  /* Slate 700 */
+  --code-bg: #1e293b;
+}
+
+[data-palette='green'][data-theme='dark'],
+[data-palette='green']:not([data-theme='light']) {
+  --bg-primary: #064e3b;
+  /* Emerald 900 - Deep Green */
+  --bg-secondary: #065f46;
+  /* Emerald 800 */
+  --bg-tertiary: #047857;
+  /* Emerald 700 */
+  --code-bg: #065f46;
+  --text-primary: #ecfdf5;
+  --text-secondary: #a7f3d0;
+}
+
+[data-palette='purple'][data-theme='dark'],
+[data-palette='purple']:not([data-theme='light']) {
+  --bg-primary: #2e1065;
+  /* Violet 950 */
+  --bg-secondary: #4c1d95;
+  /* Violet 900 */
+  --bg-tertiary: #5b21b6;
+  /* Violet 800 */
+  --code-bg: #4c1d95;
+  --text-primary: #f5f3ff;
+  --text-secondary: #ddd6fe;
+}
+
+[data-palette='brown'][data-theme='dark'],
+[data-palette='brown']:not([data-theme='light']) {
+  --bg-primary: #451a03;
+  /* Amber 950 */
+  --bg-secondary: #78350f;
+  /* Amber 900 */
+  --bg-tertiary: #92400e;
+  /* Amber 800 */
+  --code-bg: #78350f;
+  --text-primary: #fffbeb;
+  --text-secondary: #fde68a;
+}
+
+[data-theme='light'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9f9f9;
+  --bg-tertiary: #f0f0f0;
+
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+
+  --border-color: #e5e5e5;
+  --border-hover: #d4d4d4;
+
+  /* Adjust accents for light mode visibility if needed */
+  --accent-yellow: #d97706;
+  --code-bg: #f5f5f5;
+  --code-header: #eaeaea;
+  --card-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Utilities */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar for Islands */
+.island-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.island-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.island-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.island-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}

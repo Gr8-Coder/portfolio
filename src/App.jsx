@@ -6,6 +6,7 @@ import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import About from './pages/About';
 import Settings from './pages/Settings';
+import ProjectDetail from './pages/ProjectDetail';
 
 import { ThemeProvider } from './context/ThemeContext';
 
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/about" element={<About />} />
             <Route path="/settings" element={<Settings />} />

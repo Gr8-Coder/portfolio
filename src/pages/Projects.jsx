@@ -1,35 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Folder } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { projects } from '../data/projects';
 
 const Projects = () => {
-    const projects = [
-        {
-            id: 1,
-            title: 'Project Alpha',
-            description: 'A robust e-commerce platform built with Next.js and Stripe.',
-            tags: ['Next.js', 'Stripe', 'Tailwind'],
-            link: '#',
-            github: '#'
-        },
-        {
-            id: 2,
-            title: 'Task Master',
-            description: 'Productivity application with real-time collaboration features.',
-            tags: ['React', 'Firebase', 'Redux'],
-            link: '#',
-            github: '#'
-        },
-        {
-            id: 3,
-            title: 'Portfolio v1',
-            description: 'My previous portfolio site built with Gatsby.',
-            tags: ['Gatsby', 'GraphQL', 'Styled Components'],
-            link: '#',
-            github: '#'
-        }
-    ];
-
     return (
         <div className="container" style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem' }}>
             <motion.h1
@@ -54,12 +29,14 @@ const Projects = () => {
                         <div style={styles.cardHeader}>
                             <Folder size={40} color="var(--accent-blue)" />
                             <div style={styles.links}>
-                                <a href={project.github} style={styles.iconLink}><Github size={20} /></a>
-                                <a href={project.link} style={styles.iconLink}><ExternalLink size={20} /></a>
+                                <a href={project.github} target="_blank" rel="noopener noreferrer" style={styles.iconLink}><Github size={20} /></a>
+                                <a href={project.link} target="_blank" rel="noopener noreferrer" style={styles.iconLink}><ExternalLink size={20} /></a>
                             </div>
                         </div>
 
-                        <h3 style={styles.cardTitle}>{project.title}</h3>
+                        <Link to={`/projects/${project.id}`} style={{ textDecoration: 'none' }}>
+                            <h3 style={styles.cardTitle}>{project.title}</h3>
+                        </Link>
                         <p style={styles.cardDesc}>{project.description}</p>
 
                         <div style={styles.tags}>
